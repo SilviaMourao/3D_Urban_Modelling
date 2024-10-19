@@ -22,11 +22,11 @@ The project produced a 3D model of Lisbon's neighborhood, highlighting:
 - Generated topologies of urban elements, including roads and vegetation.
 - Custom CGA rules were written for generating buildings and adding textures.
   
-![Street View of the 3D Model](path/to/image1.png)
+![3D Model](images/final_scene.png)
 
 ## Project Structure
 - `/presentation`: Slides used to present the project
-- `/cej`: The CityEngine `.cej` file (project model)
+- `/project`: The CityEngine `.cej` file (project model)
 - `/rules`: Custom CGA rules used for building generation
 - `/images`: Additional images of the model
 
