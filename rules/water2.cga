@@ -1,0 +1,24 @@
+/**
+ * File:    water.cga
+ * Created: 11 Jan 2023 14:37:47 GMT
+ * Author:  fc57541
+ */
+
+version "2021.0"
+
+@Range(-180, 180)	
+attr Rotation = 0	
+@Range(0.1, 20.1)	
+attr Scale = 5	
+@File
+attr Texture = "assets/Lake/water2.jpg"	
+attr SizeX = 100	
+attr SizeZ = 100
+Water -->
+alignScopeToAxes(y)	
+rotateScope(0,Rotation,0)	
+setupProjection(0, scope.xz, SizeX * Scale, SizeZ * Scale)	
+projectUV(0)	
+texture(Texture)	
+# This line makes it animate in a web scene.	
+set(material.name, "watermaterial__waterparams_50_50")

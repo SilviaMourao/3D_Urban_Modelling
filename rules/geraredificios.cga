@@ -1,0 +1,44 @@
+/**
+ * File:    geraredificios.cga
+ * Created: 25 Nov 2022 09:41:19 GMT
+ * Author:  fc57541
+ */
+
+version "2021.0"
+
+attr alturaEdif=0
+attr Tipo_telha=""
+attr RG_imagem="assets/Telhados/Roof1.jpg"
+attr RH_imagem="assets/Telhados/Roof2.jpg"
+attr RP_imagem="assets/Telhados/Roof3.jpg"
+attr RS_imagem="assets/Telhados/Roof1.jpg"
+attr RF_imagem="assets/Telhados/flatRoof_15.jpg"
+attr orient=""
+attr txfach=""
+attr Nome_Rua=""
+attr Nr_Policia=""
+const randomFacadeTexture=fileRandom("assets/Fachadas2/*.jpg")
+
+
+A-->extrude(-alturaEdif)B
+B-->comp(f){world.up:telhado(Tipo_telha)|world.down:chao|world.north:fachada("N")|world.south:fachada("S")|world.east:fachada("E")|world.west:fachada("O")}
+telhado(Tipo_telha)--> case Tipo_telha == "roofGable" : roofGable(25) comp(f){aslant:P|vertical:P}				
+					case Tipo_telha=="roofHip" : roofHip(25) comp(f){aslant:O|vertical:O}
+					case Tipo_telha=="roofPyramid": roofPyramid(25) comp(f){aslant:Q|vertical:Q}
+					case Tipo_telha=="roofShed": roofShed(25) comp(f){aslant:R|vertical:R}
+					case Tipo_telha=="roofFlat" : D
+					else : D
+					
+P-->setupProjection(0,scope.xy,'0.5,'0.5) texture(RG_imagem) projectUV(0)		
+O-->setupProjection(0,scope.xy,'0.5,'0.5) texture(RH_imagem) projectUV(0)
+Q-->setupProjection(0,scope.xy,'0.5,'0.5) texture(RP_imagem) projectUV(0)
+R-->setupProjection(0,scope.xy,'1,'1) texture(RS_imagem) projectUV(0)
+D-->setupProjection(0,scope.xy,'1,'1) texture(RF_imagem) projectUV(0)
+
+
+fachada(orient)--> case fileExists("assets/Fachadas/"+Nome_Rua+"/"+Nr_Policia+"/"+orient+".jpg"):
+						set(txfach,"assets/Fachadas/"+Nome_Rua+"/"+Nr_Policia+"/"+orient+".jpg")
+						setupProjection(0,scope.xy,'-1,'-1) texture(txfach) projectUV(0)
+				   else: setupProjection (0,scope.xy,'-1,'-1) texture (randomFacadeTexture) projectUV(0)
+
+

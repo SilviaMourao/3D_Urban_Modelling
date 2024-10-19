@@ -1,0 +1,18 @@
+/**
+ * File:    lamps.cga
+ * Created: 11 Jan 2023 14:56:39 GMT
+ * Author:  fc57541
+ */
+
+version "2021.0"
+
+const lamp_asset="models/lamp1.dae"
+attr lampDistance=15
+attr SidewalkHeight=0.25
+SidewalkLamps-->
+split(x){~lampDistance:NIL|{0.1:Lamp|~lampDistance:NIL}*}
+Lamp-->
+ r(0,180,0)
+ t(1,0,0)
+ s(0,'1,0)
+ i(lamp_asset)

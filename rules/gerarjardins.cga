@@ -1,0 +1,19 @@
+/**
+ * File:    gerarjardins.cga
+ * Created: 16 Dec 2022 12:36:32 GMT
+ * Author:  fc57541
+ */
+
+version "2021.0"
+
+
+attr n=8 /** número de árvores */
+
+Init-->
+scatter(surface, n, uniform) { Leaf }
+Leaf-->40% : i ("assets/Plants/American_Chestnut/American_Chestnut_Fan_0.obj")
+ s ('1,'rand (1,1.5),'1)
+50% : i ("assets/Plants/Norway_Maple/Norway_Maple_Fan_0.obj")
+ s ('1,'rand (1,1.5),'1)
+ else : i ("assets/Plants/California_Bay/California_Bay_Fan_0.obj")
+ s ('1.5,'rand (1,1.5),'1)
