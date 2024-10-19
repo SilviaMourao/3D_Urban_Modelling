@@ -13,7 +13,7 @@ This project involved creating a 3D urban model of a neighborhood in Lisbon, bas
 - **Techniques**: 3D modeling, photogrammetry, stereorestitution, georeferencing
 
 ## Key Results
-The project produced a 3D model of Lisbon's neighborhood, highlighting:
+The project produced a 3D model of Campo Grande in Lisbon, highlighting:
 - Buildings at **LOD 2** (Level of Detail), including variations in roof types and facades.
 - Detailed streets and vegetation modeled using CGA rules.
 - Limitations in rendering due to processing constraints.
